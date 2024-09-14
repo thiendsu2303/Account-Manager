@@ -1,0 +1,219 @@
+body {
+    margin: 0px;
+}
+
+#master {
+    font-family: 'Roboto', sans-serif;
+}
+
+#master::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 600px;
+    right: 0px;
+    background-size: cover;
+    background-image: url(https://static-gcdn.basecdn.net/account/image/background.png);
+    background-repeat: repeat-x;
+    background-position: right bottom;
+}
+
+#master #page {
+    width: 600px;
+    height: 100%;
+}
+
+#master #page .auth .box-wrap {
+    box-sizing: border-box;
+    max-width: 550px;
+    margin: auto;
+    padding: 20px;
+}
+
+#master #page .auth .box-wrap .logo-base {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.row #submit {
+    margin-top: 30px;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #2bd14e;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+}
+
+#appdialog {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+#dialog-success {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+.dialog-top {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    overflow: auto;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.dialog {
+    position: absolute;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0 /50%);
+}
+
+.dialog-inner {
+    margin: auto;
+    overflow: hidden;
+}
+
+.dialog-main {
+    float: left;
+    position: relative;
+    overflow: hidden;
+    min-height: 90px;
+    min-width: 280px;
+    max-width: 900px;
+    border-radius: 3px;
+    background-color: #fff;
+    margin: auto;
+}
+
+.dialog-close {
+    position: absolute;
+    cursor: pointer;
+    color: #999;
+    right: 10px;
+    top: 10px;
+    padding: 6px 7px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+}
+
+.dialog-close span {
+    font-size: 16px;
+}
+
+.icon-close::before {
+    font-family: "Material Icons";
+    content: "\e5cd";
+}
+
+
+.dialog-content {
+    min-height: 40px;
+    border-top: 1px solid transparent;
+    padding: 10px;
+}
+
+.errdialog {
+    overflow: hidden;
+    padding: 25px 5px;
+    padding-top: 30px;
+    max-width: 500px;
+    min-width: 400px;
+    padding-left: 5px;
+}
+
+.errdialog .icon {
+    vertical-align: middle;
+    width: 60px;
+    padding-left: 15px;
+}
+
+.errdialog table {
+    width: 100%;
+    height: 100%;
+}
+
+#appdialog .errdialog .icon::before {
+    font-family: "Material Icons";
+    content: "\e5c9";
+    font-size: 40px;
+    color: red;
+    font-weight: bold;
+}
+
+#dialog-success .errdialog .icon::before {
+    font-family: "Material Icons";
+    content: "\e876";
+    font-size: 40px;
+    color: green;
+}
+
+.errdialog .err-message {
+    vertical-align: middle;
+    font-weight: normal;
+    font-size: 15px;
+    text-align: justify;
+    color: #111;
+    line-height: 24px;
+    padding-right: 20px;
+}
+
+.dialog-button {
+    border-top: 2px solid #e7e7e7;
+    text-align: right;
+    position: relative;
+    background-color: #fff;
+}
+
+.dialog-button .button {
+    padding: 13px 0px;
+    text-align: center;
+    cursor: pointer;
+    display: block;
+    font-size: 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.dialog-button .button.alert-button {
+    color: #c65144;
+    font-weight: bold;
+    border: none;
+}
+
+.toggle-password::before {
+    font-family: "Material Icons";
+    content: "\e8f4";
+}
+
+.toggle-password {
+    float: right;
+    margin-top: -25px;
+    margin-right: 10px;
+}
+
+.toggle-password-invi::before {
+    font-family: "Material Icons";
+    content: "\e8f5";
+}
+
+.toggle-password-invi {
+    float: right;
+    margin-top: -25px;
+    margin-right: 10px;
+}
