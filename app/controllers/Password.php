@@ -8,7 +8,6 @@ class Password extends Controller
 		// $this->email = $_SESSION['email'];
 		$this->user_model = $this->model('User');
 		$this->account_model = $this->model('Account');
-		$this->reset_pass_model = $this->model('ResetPassword');
 		$this->validation = $this->service('validation');
 	}
 
@@ -49,45 +48,6 @@ class Password extends Controller
 			if ($validate_confirm_pass != 'true') {
 				$this->close([
 					'data_err' => $validate_confirm_pass
-				]);
-			}
-
-			if ($validate_password && $validate_confirm_pass) {
-				$current_date = date('U');
-
-				$row = $this->reset_pass_model->checkExpire($data['selector'], $current_date);
-
-				if (!$row) {
-					$data['error'] = 'Xin lỗi, đường dẫn đã hết hiệu lực.';
-					$this->getJsonData($data);
-				}
-				$token_bin = hex2bin($data['validator']);
-				$token_check = password_verify($token_bin, $row->reset_token);
-
-				if (!$token_check) {
-					$data['error'] = 'Bạn cần gửi lại yêu cầu đổi mật khẩu.';
-					$this->getJsonData($data);
-				}
-				$token_email = $row->reset_email;
-				$user_row = $this->user_model->findUserByEmail($token_email);
-				if (!$user_row) {
-					$data['error'] = 'Có lỗi đã xảy ra';
-					$this->getJsonData($data);
-				}
-				$account = $this->account_model->getAccountByID($user_row->account_id);
-				$pass_hash = password_hash($data['password'], PASSWORD_DEFAULT);
-				$id = $account->account_id;
-				if (!$this->account_model->changePassword($id, $pass_hash)) {
-					$data['error'] = 'Có lỗi đã xảy ra';
-					$this->getJsonData($data);
-				}
-				if (!$this->reset_pass_model->deleteResetEmail($token_email)) {
-					$data['error'] = 'Có lỗi đã xảy ra';
-					$this->getJsonData($data);
-				}
-				$this->close([
-					'data_err' => '',
-					'page_err' => ''
 				]);
 			}
 		}
